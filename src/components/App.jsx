@@ -1,5 +1,6 @@
 import { GlobalStyle } from './GlobalStyle';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import SectionTitle from './SectionTitle/SectionTitle';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 
@@ -26,17 +27,21 @@ class App extends Component {
     const feedBackPercent = this.countPositiveFeedback();
     return (
       <>
-        <FeedbackOptions
-          options={Object.keys(this.state)}
-          onLeaveFeedback={this.handleBtn}
-        />
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={totalFeedback}
-          percent={feedBackPercent}          
-        />
+        <SectionTitle title="Please leave feedback">
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.handleBtn}
+          />
+        </SectionTitle>
+        <SectionTitle title='Statistics'>
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedback}
+            percent={feedBackPercent ? feedBackPercent :0}
+          />
+        </SectionTitle>
         <GlobalStyle />
       </>
     );    
