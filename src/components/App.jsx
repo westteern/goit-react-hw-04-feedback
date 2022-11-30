@@ -11,12 +11,19 @@ class App extends Component {
   };
 
   handleBtn = option => {
-    this.setState(prevState =>({[option]:prevState[option] + 1}))
-  }
-
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }))    
+  };
+  
+  countTotalFeedback = () =>
+    Object.values(this.state).reduce((acc, value) => acc + value);
+  
+  countPositiveFeedback = () =>
+    Math.round((this.state.good / this.countTotalFeedback() * 100));
 
   render() {
     const { good, neutral, bad } = this.state;
+    const totalFeedback = this.countTotalFeedback(); 
+    const feedBackPercent = this.countPositiveFeedback();
     return (
       <>
         <FeedbackOptions
@@ -26,7 +33,10 @@ class App extends Component {
         <Statistics
           good={good}
           neutral={neutral}
-          bad={bad} />
+          bad={bad}
+          total={totalFeedback}
+          percent={feedBackPercent}          
+        />
         <GlobalStyle />
       </>
     );    

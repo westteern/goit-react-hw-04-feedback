@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({ options, onFeedbackBtn }) => {
  return (
@@ -16,6 +16,11 @@ const FeedbackOptions = ({ options, onFeedbackBtn }) => {
    ))}
   </div>
  );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+  onFeedbackBtn: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
