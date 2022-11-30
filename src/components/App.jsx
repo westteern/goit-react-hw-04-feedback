@@ -28,7 +28,7 @@ class App extends Component {
       <>
         <FeedbackOptions
           options={Object.keys(this.state)}
-          onFeedbackBtn={this.handleBtn}
+          onLeaveFeedback={this.handleBtn}
         />
         <Statistics
           good={good}
