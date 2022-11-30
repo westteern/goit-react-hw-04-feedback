@@ -8,22 +8,22 @@ class App extends Component {
   state = {
     good: 0,
     neutral: 0,
-    bad: 0
+    bad: 0,
   };
 
   handleBtn = option => {
-    this.setState(prevState => ({ [option]: prevState[option] + 1 }))    
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
   };
-  
+
   countTotalFeedback = () =>
     Object.values(this.state).reduce((acc, value) => acc + value);
-  
+
   countPositiveFeedback = () =>
-    Math.round((this.state.good / this.countTotalFeedback() * 100));
+    Math.round((this.state.good / this.countTotalFeedback()) * 100);
 
   render() {
     const { good, neutral, bad } = this.state;
-    const totalFeedback = this.countTotalFeedback(); 
+    const totalFeedback = this.countTotalFeedback();
     const feedBackPercent = this.countPositiveFeedback();
     return (
       <>
@@ -33,19 +33,19 @@ class App extends Component {
             onLeaveFeedback={this.handleBtn}
           />
         </SectionTitle>
-        <SectionTitle title='Statistics'>
+        <SectionTitle title="Statistics">
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             total={totalFeedback}
-            percent={feedBackPercent ? feedBackPercent :0}
+            percent={feedBackPercent ? feedBackPercent : 0}
           />
         </SectionTitle>
         <GlobalStyle />
       </>
-    );    
-  };
-};
+    );
+  }
+}
 
 export default App;
