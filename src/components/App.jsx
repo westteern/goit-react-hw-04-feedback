@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import SectionTitle from './SectionTitle';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
+import Notification  from './Notification';
+
+
 
 class App extends Component {
   state = {
@@ -34,13 +37,17 @@ class App extends Component {
           />
         </SectionTitle>
         <SectionTitle title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={totalFeedback}
-            percent={feedBackPercent ? feedBackPercent : 0}
-          />
+          {!totalFeedback ? (
+            <Notification/>
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={totalFeedback}
+              percent={feedBackPercent ? feedBackPercent : 0}
+            />
+          )}
         </SectionTitle>
         <GlobalStyle />
       </>

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { BtnWraper } from './FeedbackOptions.styled';
+import { BtnWraper, Btn} from './FeedbackOptions.styled';
 
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
  return (
    <BtnWraper>
      {options.map(option => (
-       <button
+       <Btn
          type="button"
          onClick={() => {
            onLeaveFeedback(option);
@@ -14,7 +14,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
          key={option}
        >
          {option}
-       </button>
+       </Btn>
      ))}
    </BtnWraper>
  );

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const StatisticsList = styled.ul`
+export const NotificationSection = styled.div`
   padding: 10px;
   background-color: #ebdf02;
-  border-radius: 4px;  
+  border-radius: 4px;
 `;
